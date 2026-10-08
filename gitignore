@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dati raw e staging (rigenerabili dalla pipeline)
+data/raw/
+data/staging/
+
+# Output analytics (rigenerabili da build_analysis_view)
+data/analytics/
+
+# Checkpoint del modello (salvato su Google Drive)
+*.pth
+*.pt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Variabili d'ambiente
+.env
