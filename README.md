@@ -16,7 +16,7 @@ The goal is not only to classify, but to localize where the model believes a fra
 
 ## Dataset
 
-**DETECCION DE FRACTURAS** — wrist X-ray dataset in YOLO format [[Roboflow Universe, 2025]](https://universe.roboflow.com/detecciondefracturasantebrazo-8tucq/deteccion-de-fracturas-bntcm).
+**DETECCION DE FRACTURAS**: wrist X-ray dataset in YOLO format [[Roboflow Universe, 2025]](https://universe.roboflow.com/detecciondefracturasantebrazo-8tucq/deteccion-de-fracturas-bntcm).
 
 | Split | Images |
 |-------|--------|
@@ -107,8 +107,8 @@ Uses Captum's `IntegratedGradients` with a `NoiseTunnel` wrapper (SmoothGrad, 8 
 
 Both Grad-CAM and Improved IG attribution maps are evaluated against the YOLO ground-truth fracture bounding boxes using two metrics:
 
-- **Pointing-game hit rate** — fraction of fracture images where the peak attribution pixel falls inside the annotated fracture region
-- **Energy-in-box** — fraction of total attribution mass that lies inside the annotated region, compared against the chance level (mean box area / image area)
+- **Pointing-game hit rate**: fraction of fracture images where the peak attribution pixel falls inside the annotated fracture region
+- **Energy-in-box**: fraction of total attribution mass that lies inside the annotated region, compared against the chance level (mean box area / image area)
 
 ---
 
@@ -181,7 +181,7 @@ For every misclassified test image (FP and FN), a structured `.txt` report is ge
 A few choices held throughout the project:
 
 - **Blurred baseline for IG.** A zero-image baseline is semantically meaningless for X-rays. A Gaussian-blurred version of the input image is a more realistic "uncertain" baseline and produces attribution maps that align better with clinical intuition.
-- **MedCLIP over generic CLIP.** MedCLIP was trained on medical image–report pairs, so its text encoder understands clinical terminology ("cortical disruption", "distal radius") in a way that OpenAI CLIP — trained on web images and captions — does not.
+- **MedCLIP over generic CLIP.** MedCLIP was trained on medical image–report pairs, so its text encoder understands clinical terminology ("cortical disruption", "distal radius") in a way that OpenAI CLIP, trained on web images and captions, does not.
 - **Prompt ensembling over a single prompt.** A single prompt can be ambiguous or poorly calibrated. Averaging scores across multiple semantically related prompts reduces variance and makes the MedCLIP signal more robust.
 - **Layer-wise learning rates.** Early feature extractors (low-level edges and textures learned on ImageNet) are kept largely frozen; deeper layers and the classification head are allowed to adapt to the radiological domain.
 
